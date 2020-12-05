@@ -1,3 +1,2 @@
-# Algorithm_Practice
-알고리즘 문제풀이 코드 저장
+# Algorithm_Practice \n 알고리즘 문제풀이 코드 저장
 ## 알고리즘 문제풀이 코드 저장
