@@ -2,7 +2,7 @@ package baekjoon;
 
 import java.io.*;
 import java.util.*;
-public class boj_1932 {
+public class Boj_1932 {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
