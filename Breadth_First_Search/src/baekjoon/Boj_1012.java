@@ -34,8 +34,7 @@ public class Boj_1012 {
 					}
 				}
 			}
-			bw.write(result+"\n"
-					+ "");
+			bw.write(result+"\n"+ "");
 		}
 		
 		br.close();
