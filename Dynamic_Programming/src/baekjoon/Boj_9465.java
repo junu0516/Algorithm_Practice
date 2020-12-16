@@ -1,7 +1,12 @@
 package baekjoon;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
+
 
 public class Boj_9465 {
 
@@ -20,7 +25,6 @@ public class Boj_9465 {
 			//스티커판은 2*n 형태의 2차원 배열로 선언, 각각의 위치 방문 여부를 지정해줄 2차원 배열 선언
 			int[][] sticker = new int[2][n];
 			boolean[][] visited = new boolean[2][n];
-			ArrayList<int[]> points = new ArrayList<int[]>();
 			
 			//각각의 경우를 담을 배열은 길이 n인 1차원 배열로 선언
 			int[] cases = new int[n];
@@ -39,9 +43,9 @@ public class Boj_9465 {
 			// .....
 			//n개일 경우 : n-1개일 경우 + 변을 공유하지 않는 위치들 중 최댓값
 			
-			cases[0] = getMax(sticker,visited,points);
+			cases[0] = getMax(sticker,visited);
 			for(int j=1;j<n;j++) {
-				cases[j] = cases[j-1]+getMax(sticker,visited,points);
+				cases[j] = cases[j-1]+getMax(sticker,visited);
 			}
 			
 			bw.write(cases[n-1]+"\n");
@@ -51,8 +55,9 @@ public class Boj_9465 {
 		bw.close();
 	}
 	
-	public static int getMax(int[][] sticker, boolean[][] visited, ArrayList<int[]> points) {	
+	public static int getMax(int[][] sticker, boolean[][] visited) {	
 		int max=0;
+		int[] point = new int[2];
 		for(int i=0;i<sticker.length;i++) {
 			for(int j=0;j<sticker[i].length;j++) {
 				
@@ -60,19 +65,15 @@ public class Boj_9465 {
 					if(visited[i][j]){
 						continue;
 					}
-					//새로운 최댓값 발견하면 기존에 저장한 위치값을 리스트에서 제거
-					if(points.size()!=0) {
-						points.remove(points.size()-1);
-					}
 					//최댓값 초기화
 					max = sticker[i][j];
 					//현재 위치값을 리스트에 추가
-					points.add(new int[] {i,j});				
+					point[0] = i;
+					point[1] = j;			
 				}
 			}
 		}
 		
-		int[] point = points.get(points.size()-1);
 		visited[point[0]][point[1]] = true;
 		
 		if(!(point[0]+1>=2)) {
