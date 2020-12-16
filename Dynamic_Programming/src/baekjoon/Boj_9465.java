@@ -1,94 +1,43 @@
 package baekjoon;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
-
+import java.util.Scanner;
 
 public class Boj_9465 {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
+		Scanner sc = new Scanner(System.in);
 		//테스트 케이스의 수 입력
-		int t = Integer.parseInt(br.readLine());
+		int t = sc.nextInt();
 		
 		for(int i=0;i<t;i++) {
 			//정수의 갯수 입력
-			int n = Integer.parseInt(br.readLine());
+			int n = sc.nextInt();
 			
 			//스티커판은 2*n 형태의 2차원 배열로 선언, 각각의 위치 방문 여부를 지정해줄 2차원 배열 선언
-			int[][] sticker = new int[2][n];
-			boolean[][] visited = new boolean[2][n];
-			
-			//각각의 경우를 담을 배열은 길이 n인 1차원 배열로 선언
-			int[] cases = new int[n];
-			
+			//maxScore[i][j]는 해당 위치에 오기까지 나올 수 있는 점수 합계의 최대값
+			int[][] sticker = new int[2][n+1];
+			int[][] maxScore = new int[2][n+1];
+						
 			//스티커판에 입력받은 점수들을 각각 할당
 			for(int j=0;j<2;j++) {
-				StringTokenizer st = new StringTokenizer(br.readLine());
-				for(int k=0;k<n;k++) {
-					sticker[j][k] = Integer.parseInt(st.nextToken());
+				for(int k=1;k<=n;k++) {
+					sticker[j][k] = sc.nextInt();
 				}
 			}
-			//떼어낼 수 있는 스티커의 경우의 수 : 1,2,3,4,5 가지가 있음 -> 1~n까지의 수 존재
-			//1개일 경우 : 스티커판에서 점수 최댓값
-			//2개일 경우 : 1개일 경우 + 변을 공유하지 않는 위치들 중 최댓값
-			//3개일 경우 : 2개일 경우 + 변을 공유하지 않는 위치들 중 최댓값
-			// .....
-			//n개일 경우 : n-1개일 경우 + 변을 공유하지 않는 위치들 중 최댓값
+						
+			// 시작지점은 총 2가지 경우의 수가 존재
+			// 각각의 시작지점에 올 수 있는 최대값은 해당 지점에 적힌 점수와 동일
+			maxScore[0][1] = sticker[0][1];
+			maxScore[1][1] = sticker[1][1];
 			
-			cases[0] = getMax(sticker,visited);
-			for(int j=1;j<n;j++) {
-				cases[j] = cases[j-1]+getMax(sticker,visited);
+			//시작지점에서 이동할 수 있는 경우의 수는, 대각선 정방향과 대각선방향 오른쪽 한칸의 총 두가지 경우의 수가 존재
+			for(int j=2;j<=n;j++) {
+				maxScore[0][j] = Math.max(maxScore[1][j-1],maxScore[1][j-2])+sticker[0][j];
+				maxScore[1][j] = Math.max(maxScore[0][j-1],maxScore[0][j-2])+sticker[1][j];						
 			}
 			
-			bw.write(cases[n-1]+"\n");
+			System.out.println(Math.max(maxScore[0][n], maxScore[1][n]));					
 		}
-		br.close();
-		bw.flush();
-		bw.close();
-	}
-	
-	public static int getMax(int[][] sticker, boolean[][] visited) {	
-		int max=0;
-		int[] point = new int[2];
-		for(int i=0;i<sticker.length;i++) {
-			for(int j=0;j<sticker[i].length;j++) {
-				
-				if(sticker[i][j]>max) {
-					if(visited[i][j]){
-						continue;
-					}
-					//최댓값 초기화
-					max = sticker[i][j];
-					//현재 위치값을 리스트에 추가
-					point[0] = i;
-					point[1] = j;			
-				}
-			}
-		}
-		
-		visited[point[0]][point[1]] = true;
-		
-		if(!(point[0]+1>=2)) {
-			visited[point[0]+1][point[1]] = true;
-		}
-		if(point[1]+1 < sticker[0].length) {
-			visited[point[0]][point[1]+1] = true;	
-		}
-		if(!(point[0]-1<0)) {
-			visited[point[0]-1][point[1]] = true;
-		}
-		if(!(point[1]-1<0)) {
-			visited[point[0]][point[1]-1] = true;
-		}	
-		
-		return max;
 	}
 }
