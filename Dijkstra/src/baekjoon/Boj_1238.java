@@ -69,6 +69,7 @@ public class Boj_1238 {
 		
 		int result = 0;
 		for(int i=1;i<=n;i++) {
+			//distance[i]와 distanceRev[i]를 더해야 왕복 거리를 계산할 수 있음
 			result = Math.max(result, distance[i]+distanceRev[i]);
 		}
 		
@@ -96,6 +97,7 @@ public class Boj_1238 {
 			visited[currIdx] = true;
 			
 			for(Node node : graph[currIdx]) {
+				//거리값 초기화
 				if(distance[node.index] > distance[currIdx] + node.distance) {
 					distance[node.index] = distance[currIdx] + node.distance;
 					toVisit.add(new Node(node.index,distance[node.index]));
