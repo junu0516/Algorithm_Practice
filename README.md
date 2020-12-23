@@ -11,3 +11,5 @@
 ### 3. 다익스트라   
 주로 인접리스트를 활용하여 풀이   
 * [백준](https://github.com/junu0516/Algorithm_Practice/tree/main/Dijkstra/src/baekjoon) : [1238](https://github.com/junu0516/Algorithm_Practice/blob/main/Dijkstra/src/baekjoon/Boj_1238.java) [1753](https://github.com/junu0516/Algorithm_Practice/blob/main/Dijkstra/src/baekjoon/Boj_1753.java)
+### 4. 큐, 스택   
+* [백준](https://github.com/junu0516/Algorithm_Practice/tree/main/Queue&Stack/src/baekjoon) : [1966](https://github.com/junu0516/Algorithm_Practice/tree/main/Queue&Stack/src/baekjoon/Boj_1966.java)   
