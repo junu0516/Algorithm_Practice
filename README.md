@@ -14,4 +14,4 @@
 ### 4. 큐, 스택   
 * [백준](https://github.com/junu0516/Algorithm_Practice/tree/main/Queue&Stack/src/baekjoon) : [1966](https://github.com/junu0516/Algorithm_Practice/tree/main/Queue&Stack/src/baekjoon/Boj_1966.java)   
 ### 5. 기타(정렬, 수학, 구현, etc)
-* [백준](https://github.com/junu0516/Algorithm_Practice/tree/main/Others/src/baekjoon) : [10814](https://github.com/junu0516/Algorithm_Practice/blob/main/Others/src/baekjoon/Boj_10814.java) [11651](https://github.com/junu0516/Algorithm_Practice/blob/main/Others/src/baekjoon/Boj_11651.java) [11652](https://github.com/junu0516/Algorithm_Practice/blob/main/Others/src/baekjoon/Boj_11652.java)   
+* [백준](https://github.com/junu0516/Algorithm_Practice/tree/main/Others/src/baekjoon) : [10814](https://github.com/junu0516/Algorithm_Practice/blob/main/Others/src/baekjoon/Boj_10814.java) [11650](https://github.com/junu0516/Algorithm_Practice/blob/main/Others/src/baekjoon/Boj_11650.java) [11651](https://github.com/junu0516/Algorithm_Practice/blob/main/Others/src/baekjoon/Boj_11651.java)   
