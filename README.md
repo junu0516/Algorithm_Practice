@@ -1,6 +1,6 @@
 # Algorithm_Practice (알고리즘 문제풀이 코드 저장)
 ### 0. 프로그래머스 문제풀이
-* 레벨 1 :      
+* 레벨 1 : [내 맘대로 문자열 정렬](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level1/StringSort.java)
 * 레벨 2 : [스킬트리](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level2/SkillTree.java)   [프린터](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level2/PrinterQueue.java)   [기능개발](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level2/Functions.java)   [주식가격](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level2/StockPrice.java)   [피보나치 수열](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level2/Fibonacci.java)   [다리를 지나는 트럭](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level2/PassingTrucks.java)  [삼각달팽이](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level2/Triangle.java)  [오픈채팅방](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level2/Chatting.java)
 ### 1. Dynamic Programming(동적계획법)
 주로 bottom-up 방식으로 점화식 도출해서 풀이
