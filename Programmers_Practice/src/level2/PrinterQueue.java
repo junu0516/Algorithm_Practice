@@ -2,55 +2,51 @@ package level2;
 
 import java.util.LinkedList;
 import java.util.Queue;
-/*
- * 
- * ¹®Á¦ ¼³¸í
-ÀÏ¹İÀûÀÎ ÇÁ¸°ÅÍ´Â ÀÎ¼â ¿äÃ»ÀÌ µé¾î¿Â ¼ø¼­´ë·Î ÀÎ¼âÇÕ´Ï´Ù. ±×·¸±â ¶§¹®¿¡ Áß¿äÇÑ ¹®¼­°¡ ³ªÁß¿¡ ÀÎ¼âµÉ ¼ö ÀÖ½À´Ï´Ù. ÀÌ·± ¹®Á¦¸¦ º¸¿ÏÇÏ±â À§ÇØ Áß¿äµµ°¡ ³ôÀº ¹®¼­¸¦ ¸ÕÀú ÀÎ¼âÇÏ´Â ÇÁ¸°ÅÍ¸¦ °³¹ßÇß½À´Ï´Ù. ÀÌ »õ·Ó°Ô °³¹ßÇÑ ÇÁ¸°ÅÍ´Â ¾Æ·¡¿Í °°Àº ¹æ½ÄÀ¸·Î ÀÎ¼â ÀÛ¾÷À» ¼öÇàÇÕ´Ï´Ù.
 
-1. ÀÎ¼â ´ë±â¸ñ·ÏÀÇ °¡Àå ¾Õ¿¡ ÀÖ´Â ¹®¼­(J)¸¦ ´ë±â¸ñ·Ï¿¡¼­ ²¨³À´Ï´Ù.
-2. ³ª¸ÓÁö ÀÎ¼â ´ë±â¸ñ·Ï¿¡¼­ Jº¸´Ù Áß¿äµµ°¡ ³ôÀº ¹®¼­°¡ ÇÑ °³¶óµµ Á¸ÀçÇÏ¸é J¸¦ ´ë±â¸ñ·ÏÀÇ °¡Àå ¸¶Áö¸·¿¡ ³Ö½À´Ï´Ù.
-3. ±×·¸Áö ¾ÊÀ¸¸é J¸¦ ÀÎ¼âÇÕ´Ï´Ù.
-¿¹¸¦ µé¾î, 4°³ÀÇ ¹®¼­(A, B, C, D)°¡ ¼ø¼­´ë·Î ÀÎ¼â ´ë±â¸ñ·Ï¿¡ ÀÖ°í Áß¿äµµ°¡ 2 1 3 2 ¶ó¸é C D A B ¼øÀ¸·Î ÀÎ¼âÇÏ°Ô µË´Ï´Ù.
-
-³»°¡ ÀÎ¼â¸¦ ¿äÃ»ÇÑ ¹®¼­°¡ ¸î ¹øÂ°·Î ÀÎ¼âµÇ´ÂÁö ¾Ë°í ½Í½À´Ï´Ù. À§ÀÇ ¿¹¿¡¼­ C´Â 1¹øÂ°·Î, A´Â 3¹øÂ°·Î ÀÎ¼âµË´Ï´Ù.
-
-ÇöÀç ´ë±â¸ñ·Ï¿¡ ÀÖ´Â ¹®¼­ÀÇ Áß¿äµµ°¡ ¼ø¼­´ë·Î ´ã±ä ¹è¿­ priorities¿Í ³»°¡ ÀÎ¼â¸¦ ¿äÃ»ÇÑ ¹®¼­°¡ ÇöÀç ´ë±â¸ñ·ÏÀÇ ¾î¶² À§Ä¡¿¡ ÀÖ´ÂÁö¸¦ ¾Ë·ÁÁÖ´Â locationÀÌ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, ³»°¡ ÀÎ¼â¸¦ ¿äÃ»ÇÑ ¹®¼­°¡ ¸î ¹øÂ°·Î ÀÎ¼âµÇ´ÂÁö return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
- * 
- * 
- * */
-class PrinterQueue {
-    public int solution(int[] priorities, int location) {
-        Queue<int[]> toPrint = new LinkedList<int[]>();
+public class PrinterQueue {
+    public static int solution(int[] priorities, int location) {
+    	//priorities[location]ì— í•´ë‹¹í•˜ëŠ” ìš”ì†Œê°€ íì—ì„œ ëª‡ë²ˆì§¸ë¡œ pollë˜ëŠ” ì§€ë¥¼ êµ¬í•˜ì
+        int answer = 0;
+        Queue<int[]> toPrint = new LinkedList<int[]>(); //ë¬¸ì„œë²ˆí˜¸, ì¤‘ìš”ë„
+        
         for(int i=0;i<priorities.length;i++){
             int[] doc = new int[2];
-            doc[0] = i;
-            doc[1] = priorities[i];
+            doc[0] = i; //ë¬¸ì„œë²ˆí˜¸
+            doc[1] = priorities[i]; //ì¤‘ìš”ë„
             toPrint.add(doc);
         }
         
-        int count = 0;
         while(!toPrint.isEmpty()){
-            int[] curr = toPrint.poll();
+            int[] curr = toPrint.poll(); //ì¼ë‹¨ ëŒ€ê¸°ë¦¬ìŠ¤íŠ¸ì—ì„œ ë¹¼ê³  ì‹œì‘
             boolean print = true;
             
-            for(int[] doc : toPrint){
+            for(int[] doc : toPrint){ //í•´ë‹¹ ë¬¸ì„œì˜ ì¤‘ìš”ë„ê°€ ì œì¼ ë†’ì€ì§€ë¥¼ íŒë³„
                 if(doc[1]>curr[1]){
-                    print = false;
-                }   
+                    print = false; //ì¤‘ìš”ë„ê°€ ë‚®ì€ ë¬¸ì„œë©´ print = falseë¡œ ë³€ê²½
+                }
             }
             
-            if(print){
-                count++;
-                if(curr[0] == location ){
+            if(print){//í”„ë¦°íŠ¸ ê°€ëŠ¥í•œ ìƒíƒœì¸ ê²½ìš°
+                answer++;
+                if(curr[0]==location){ //ì°¾ê³ ìí•˜ëŠ” ë¬¸ì„œë²ˆí˜¸(location)ì™€ ì¼ì¹˜í•˜ë©´
                     break;
                 }
-            }else{
+            }else{//í”„ë¦°í„°í•  ìˆ˜ ì—†ëŠ” ë¬¸ì„œë©´ ë‹¤ì‹œ ëŒ€ê¸°ë¦¬ìŠ¤íŠ¸ì˜ ë§¨ ëì— ë„£ì–´ì¤Œ
                 toPrint.add(curr);
             }
-        }
-        
-        
-        int answer = count;
-        return answer;
+        }        
+       return answer;
+    }
+    
+    public static void main(String[] args) {
+    	int[] priorities = new int[] {2,1,3,2};
+    	int location = 2;
+    	int result = solution(priorities,location);
+    	System.out.println(result);
+    	
+    	priorities = new int[] {1,1,9,1,1,1};
+    	location = 0;
+    	result = solution(priorities,location);
+    	System.out.println(result);
     }
 }
