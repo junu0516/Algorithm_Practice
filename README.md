@@ -24,4 +24,4 @@
 ### 6. 브루트포스
 * [백준](https://github.com/junu0516/Algorithm_Practice/tree/main/BruteForce/src/baekjoon) : [1018](https://github.com/junu0516/Algorithm_Practice/tree/main/BruteForce/src/baekjoon/Boj_1018.java) [2231](https://github.com/junu0516/Algorithm_Practice/tree/main/BruteForce/src/baekjoon/Boj_2231.java)  [14500](https://github.com/junu0516/Algorithm_Practice/tree/main/BruteForce/src/baekjoon/Boj_14500.java)
 ### 7. 재귀
-* [백준](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon) : [10870](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon/Boj_10870.java)
+* [백준](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon) : [10870](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon/Boj_10870.java) [11729]https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon/Boj_11729.java)
