@@ -24,4 +24,7 @@
 ### 6. 브루트포스
 * [백준](https://github.com/junu0516/Algorithm_Practice/tree/main/BruteForce/src/baekjoon) : [1018](https://github.com/junu0516/Algorithm_Practice/tree/main/BruteForce/src/baekjoon/Boj_1018.java) [2231](https://github.com/junu0516/Algorithm_Practice/tree/main/BruteForce/src/baekjoon/Boj_2231.java)  [14500](https://github.com/junu0516/Algorithm_Practice/tree/main/BruteForce/src/baekjoon/Boj_14500.java)
 ### 7. 재귀 / DFS / 백트래킹
+📝 스택오버플로우 예외 발생에 유의 -> return을 반드시 적절한 시점에 선언해주도록 함
+📝 백트래킹의 다양한 구현 방법 중 재귀를 활용할 수 있음
+📝 DFS의 경우 스택(1260번)을 활용할 수도 있지만, 재귀가 더 편리하기 때문에 가급적 재귀호출로 연습해볼 것
 * [백준](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon) : [1991](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon/Boj_1991.java) [6603](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon/Boj_6603.java) [10870](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon/Boj_10870.java) [11729](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon/Boj_11729.java) [15649](https://github.com/junu0516/Algorithm_Practice/blob/main/Recursion/src/baekjoon/Boj_15649.java)
