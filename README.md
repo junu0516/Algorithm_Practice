@@ -1,5 +1,6 @@
 # 📃 Algorithm_Practice (알고리즘 문제풀이 코드 저장)
-📣 () 안은 문제 푼 횟수
+###📣 () 안은 문제 푼 횟수
+###📣 한 번 풀어본 문제는 반드시 2번 이상 다시 풀어볼 것!
 * * *
 ### 0. 프로그래머스 문제풀이
 * 레벨 1 : [내 맘대로 문자열 정렬](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level1/StringSort.java) [내림차순 정렬](https://github.com/junu0516/Algorithm_Practice/blob/main/Programmers_Practice/src/level1/DescSort.java)

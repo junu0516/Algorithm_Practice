@@ -22,7 +22,7 @@ public class Boj_1697 {
 		if(n>=k) { //목적지가 출발지보다 뒤에 있는 경우는 무조건 1칸씩 걸어야 하기 때문에, 인덱스 차이값을 출력
 			bw.write(n-k+"");
 		}else { //목적지가 출발지보다 앞에 있는 경우에만 bfs를 진행
-			int[] graph = new int[100001]; //배열 내 특정 인덱스에 도달하기 까지 걸리는 '최소 시간'을 할당
+			int[] graph = new int[100001]; //배열 내 특정 인덱스에 도달하기 까지 걸리는 최소시간을 할당
 			int result = bfs(graph,n,k);
 			bw.write(result+"");
 			
