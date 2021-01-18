@@ -17,56 +17,50 @@ public class Boj_1697 {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int start = Integer.parseInt(st.nextToken());
-		int goal = Integer.parseInt(st.nextToken());
-		
-		int[] map = new int[100001];
-		
-		int result = start<goal? bfs(start,goal,map):start-goal;
-		bw.write(result+"");
-		
+		int n = Integer.parseInt(st.nextToken());
+		int k = Integer.parseInt(st.nextToken());
+		if(n>=k) { //목적지가 출발지보다 뒤에 있는 경우는 무조건 1칸씩 걸어야 하기 때문에, 인덱스 차이값을 출력
+			bw.write(n-k+"");
+		}else { //목적지가 출발지보다 앞에 있는 경우에만 bfs를 진행
+			int[] graph = new int[100001]; //배열 내 특정 인덱스에 도달하기 까지 걸리는 '최소 시간'을 할당
+			int result = bfs(graph,n,k);
+			bw.write(result+"");
+			
+		}		
 		
 		br.close();
 		bw.flush();
 		bw.close();
 	}
 	
-	public static int bfs(int start, int goal, int[] map) {
-		Queue<Integer>toVisit = new LinkedList<Integer>();
-		boolean[] visited = new boolean[100001];
-		map[start]=0;
-		
+	public static int bfs(int[] graph,int start, int goal) {
+		Queue<Integer> toVisit = new LinkedList<Integer>();
+		boolean[] visited = new boolean[graph.length];
 		toVisit.add(start);
-	
+		
+		graph[start] = 0; //시작지점에 가는 시간은 0
+		
 		while(!toVisit.isEmpty()) {
 			int curr = toVisit.poll();
+			int[] dx = new int[] {-1,1,curr};
 			
-			if(curr==goal) {
-				return map[curr];
+			if(curr==goal) { //목적지에 도달하면 반복문을 빠져나감
+				break;
 			}
-			
 			for(int i=0;i<3;i++) {
-				int next;
+				int next = curr+dx[i];
 				
-				if(i==0) {
-					next = curr+1;
-				}else if(i==1) {
-					next = curr-1;
-				}else {
-					next = curr*2;
-				}
-				
-				if(next<0||next>100000) {//next>goal�� ������ �߰��ϰ� �Ǹ� ��ǥ�������� 1ĭ �ʰ��� �� �ٽ� 1ĭ �ڷ� ���� ��찡 �ּ��� ���� �����ϹǷ� �־��ָ� �ȵ�
+				if(next<0 || next>=graph.length || visited[next]==true) {
 					continue;
 				}
 				
-				if(visited[next]==false) {
-					toVisit.add(next);
-					map[next] = map[curr]+1;
-					visited[next] = true;
-				}
+				toVisit.add(next);
+				graph[next] = graph[curr]+1;
+				visited[next] = true; //특정 지점에 도달하기까지 '최소 시간'만을 할당해야 하므로, 반드시 방문처리를 따로 하도록 해야 함
 			}
 		}
-		return 0;
+		
+		return graph[goal]; //목적지에 도달하는데 걸리는 최소 시간을 리턴
 	}
+	
 }
