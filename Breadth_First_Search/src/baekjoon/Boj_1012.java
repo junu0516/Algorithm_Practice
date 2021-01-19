@@ -1,74 +1,73 @@
 package baekjoon;
 
-import java.io.*;
-import java.util.*;
-public class Boj_1012 {
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
 
-	public static void main(String[] args) throws IOException {
+public class Boj_1012 {
+	static int n;
+	static int m;
+	static int k;
+	
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
-		int t = Integer.parseInt(br.readLine()); //Å×½ºÆ®ÄÉÀÌ½ºÀÇ ¼ö T
-		for(int i=0;i<t;i++){
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			int col = Integer.parseInt(st.nextToken()); //°¡·ÎÀÇ ±æÀÌ M
-			int row = Integer.parseInt(st.nextToken()); //¼¼·ÎÀÇ ±æÀÌ N
-			int numCab = Integer.parseInt(st.nextToken()); //¹èÃßÀÇ °³¼ö K
-			int result = 0;
+		Scanner sc = new Scanner(System.in);
+		int t = sc.nextInt(); 
+		for(int i=0;i<t;i++) {
+			m = sc.nextInt(); //ê°€ë¡œì˜ ê¸¸ì´
+			n = sc.nextInt(); //ì„¸ë¡œì˜ ê¸¸ì´
+			k = sc.nextInt(); //ë°°ì¶”ê°€ ì‹¬ì–´ì ¸ ìˆëŠ” ìœ„ì¹˜ì˜ ê°œìˆ˜
 			
-			int[][] farm = new int[row][col];
-			boolean[][] visited = new boolean[row][col];
-			for(int j=0;j<numCab;j++) {
-				//¹èÃß½ÉÀ» À§Ä¡ ÀÔ·Â
-				st = new StringTokenizer(br.readLine());
-				int x = Integer.parseInt(st.nextToken());
-				int y = Integer.parseInt(st.nextToken());
-				farm[y][x] = 1; //¹èÃß ½É±â
+			int[][] farm = new int[n][m];
+			boolean[][] visited = new boolean[n][m];
+			
+			for(int j=0;j<k;j++) {
+				int x = sc.nextInt();
+				int y = sc.nextInt();
+				
+				farm[y][x] = 1;//ë°°ì¶”ì‹¬ê¸°
 			}
 			
-			for(int j=0;j<row;j++) {
-				for(int k=0;k<col;k++) {
-					if(farm[j][k]==1&&visited[j][k]==false) {
-						result += bfs(farm,visited,j,k,row,col);
+			int count = 0;
+			for(int j=0;j<n;j++) {
+				for(int l=0;l<m;l++) {
+					if(visited[j][l]==false && farm[j][l] ==1) {
+						count += bfs(farm, visited, j, l);
 					}
 				}
 			}
-			bw.write(result+"\n");
+			System.out.println(count);
 		}
-		
-		br.close();
-		bw.flush();
-		bw.close();
 	}
 	
-	public static int bfs(int[][] farm, boolean[][] visited, int y, int x, int row, int col) {
-		Queue<int[]>toVisit = new LinkedList<int[]>();
+	public static int bfs(int[][] farm, boolean[][] visited, int y, int x) {
+		Queue<int[]> toVisit = new LinkedList<>();
 		toVisit.add(new int[] {y,x});
-		int[] dy = new int[] {0,0,1,-1};
+		int[] dy = new int[] {0,0,-1,1};
 		int[] dx = new int[] {-1,1,0,0};
 		
 		while(!toVisit.isEmpty()) {
-			int[] point = toVisit.poll();
-			int currY = point[0];
-			int currX = point[1];
+			int[] curr = toVisit.poll();
+			int currY = curr[0];
+			int currX = curr[1];
 			
 			for(int i=0;i<4;i++) {
-				int nextY = currY + dy[i];
-				int nextX = currX + dx[i];
+				int nextY = currY+dy[i];
+				int nextX = currX+dx[i];
 				
-				//´ÙÀ½ ¹æ¹®ÇÒ À§Ä¡°¡ farmÀÇ ¹üÀ§¸¦ ³Ñ¾î¼³ °æ¿ì pass
-				if(nextY<0||nextX<0||nextY>=row||nextX>=col) {
+				if(nextY<0||nextX<0||nextY>=n||nextX>=m) {
 					continue;
 				}
-				//ÀÌ¹Ì ¹æ¹®ÇÑ ÁöÁ¡ÀÌ°Å³ª, ¹èÃß°¡ ½É¾îÁ® ÀÖÁö ¾ÊÀº ÁöÁ¡ÀÏ °æ¿ì pass
-				if(visited[nextY][nextX]==true||farm[nextY][nextX]==0) {
+				
+				if(visited[nextY][nextX] == true || farm[nextY][nextX]==0) {
 					continue;
 				}
+				
 				toVisit.add(new int[] {nextY,nextX});
 				visited[nextY][nextX] = true;
 			}
 		}
+		
 		return 1;
 	}
 
