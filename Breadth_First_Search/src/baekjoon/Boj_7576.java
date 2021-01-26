@@ -1,42 +1,32 @@
 package baekjoon;
 
-import java.io.*;
 import java.util.*;
 
 public class Boj_7576 {
-
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int col = Integer.parseInt(st.nextToken());
-		int row = Integer.parseInt(st.nextToken());
+	static int col;
+	static int row;
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		col = sc.nextInt();
+		row = sc.nextInt();
 		int[][] box = new int[row][col];
-		
-		//Åä¸¶Åä ¹Ú½º ¿Ï¼º
 		for(int i=0;i<row;i++) {
-			st = new StringTokenizer(br.readLine());
 			for(int j=0;j<col;j++) {
-				box[i][j] = Integer.parseInt(st.nextToken());
+				box[i][j] = sc.nextInt();
 			}
 		}
 		
-		int result = bfs(box,row,col);
-		bw.write(result+"");
+		int result = bfs(box);
+		System.out.println(result);
 		
-		br.close();
-		bw.flush();
-		bw.close();
 	}
 	
-	public static int bfs(int[][] box, int row, int col) {
-		Queue<int[]> toVisit = new LinkedList<int[]>();		
-		int[] dx = new int[] {-1,1,0,0};
-		int[] dy = new int[] {0,0,1,-1};
+	public static int bfs(int[][] box) {
+		Queue<int[]> toVisit = new LinkedList<>();
+		int[] dy = new int[] {-1,1,0,0};
+		int[] dx = new int[] {0,0,1,-1};
 		
-		//½ÃÀÛ ÁöÁ¡ Ã£±â
 		for(int i=0;i<row;i++) {
 			for(int j=0;j<col;j++) {
 				if(box[i][j]==1) {
@@ -45,38 +35,39 @@ public class Boj_7576 {
 			}
 		}
 		
-		//°¢°¢ÀÇ ½ÃÀÛÁöÁ¡ºÎÅÍ bfs ½ÃÀÛ
 		while(!toVisit.isEmpty()) {
-			int[] point = toVisit.poll();
-			int currY = point[0];
-			int currX = point[1];
+			int[] curr = toVisit.poll();
+			int currY = curr[0];
+			int currX = curr[1];
 			
 			for(int i=0;i<4;i++) {
-				int nextY = currY + dy[i];
-				int nextX = currX + dx[i];
+				int nextY = currY+dy[i];
+				int nextX = currX+dx[i];
 				
 				if(nextY<0||nextX<0||nextY>=row||nextX>=col) {
 					continue;
 				}
-				if(box[nextY][nextX]!=0) {
+				
+				if(box[nextY][nextX] != 0) {
 					continue;
 				}
-
-				box[nextY][nextX] = box[currY][currX]+1; 
+				
+				box[nextY][nextX] = box[currY][currX] +1;
 				toVisit.add(new int[] {nextY,nextX});
 			}
 		}
-			
-		//³¡³ª¸é ÃÖ´ë°ª Ã£¾Æ¼­ -1ÇÑ °ªÀ» ¸®ÅÏ
-		int max=0;
+		
+		int result = 0;
 		for(int i=0;i<row;i++) {
 			for(int j=0;j<col;j++) {
 				if(box[i][j]==0) {
 					return -1;
 				}
-				max = Math.max(box[i][j], max);
+				result = Math.max(result, box[i][j]);
 			}
-		}	
-		return max-1;
+		}
+		
+		return result-1; //box[i][j]=1ë¶€í„° ì‹œìž‘í–ˆê¸° ë•Œë¬¸ì—, ê²°ê³¼ê°’-1ë¡œ ë¦¬í„´í•´ì•¼ í•¨
 	}
+	
 }
