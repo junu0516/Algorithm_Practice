@@ -51,7 +51,7 @@ public class Boj_2805 {
 			}
 		}
 		
-		System.out.println(high);
+		bw.write(high+"");
 		
 		br.close();
 		bw.flush();
