@@ -41,6 +41,6 @@
 📝 일반적인 이분탐색은 반드시 __배열을 오름차순으로 정렬__ 후 진행 
 * [백준](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon) : [1654](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon/Boj_1654.java) [1920](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon/Boj_1920.java) [2805](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon/Boj_2805.java) [10816](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon/Boj_10816.java)   
 ### 9. 분할정복
-* [백준](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon) : [1780](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_1780) [11728](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_11728)
+* [백준](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon) : [1780](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_1780.java) [11728](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_11728)
 
 
