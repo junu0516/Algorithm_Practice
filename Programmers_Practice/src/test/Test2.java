@@ -4,6 +4,20 @@ import java.util.*;
 
 public class Test2 {
 	
+	/*
+	 * 문제:
+	 * 
+	 * 다단계 구조로 판매 수익의 10%를 추천인에게 넘기는 구조이다.
+	 * 
+	 * 예를 들어 판매원 A를 판매원 B가 추천했다고 하면,
+	 * A가 1200원을 벌었을 때 A는 1080원을 가지고 120원을 B에게 넘긴다.
+	 * 이후, B는 120원의 90%만을 가지고 남은 10%를 B의 추천인에게 다시 넘기는 구조이다.
+	 * 
+	 * 이런식으로 추천인이 없는 경우에는 center.. 즉 회사로 남은 10%를 넘기면 된다.
+	 * 
+	 * 
+	 * */
+	
 	static HashMap<String, String> map; //판매자, 추천인
 	static HashMap<String, Integer> income; //판매자, 벌어들인 수익
 	
