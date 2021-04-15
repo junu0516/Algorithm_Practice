@@ -49,5 +49,10 @@
 * [백준](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon) : [1654](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon/Boj_1654.java) [1920](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon/Boj_1920.java) [2805](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon/Boj_2805.java) [10816](https://github.com/junu0516/Algorithm_Practice/blob/main/BinarySearch/src/baekjoon/Boj_10816.java)   
 ### 9. 분할정복
 * [백준](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon) : [1517](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_1517.java) [1780](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_1780.java) [1992](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_1992.java) [11728](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_11728)
+### 10. 그리디 알고리즘   
+📝 부분 집합의 최적해를 구하면서 전체 집합의 최적해를 구하는 것은 DP와 비슷하지만, 각각의 부분집합들의 최적해들이 서로 관련되지 않음에 차이   
+* [백준](https://github.com/junu0516/Algorithm_Practice/blob/main/GreedyAlgorithm/src/baekjoon) : [11047](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_1517.java) [1780](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_1780.java) [1992](https://github.com/junu0516/Algorithm_Practice/blob/main/DivideAndConquer/src/baekjoon/Boj_1992.java) [11728](https://github.com/junu0516/Algorithm_Practice/blob/main/GreedyAlgorithm/src/baekjoon/Boj_11047)   
+ 
+
 
 
